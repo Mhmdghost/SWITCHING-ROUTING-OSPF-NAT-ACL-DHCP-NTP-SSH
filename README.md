@@ -56,7 +56,7 @@ It includes **Switching, Routing, NAT, PAT, ACL, OSPF, DHCP, NTP, and SSH** conf
 
 ### 🔐 SSH
 Remote login to devices using SSH.  
-![SSH Login](./images/SSH.PNG)
+![SSH Login](./images/SSH.png)
 
 ---
 
