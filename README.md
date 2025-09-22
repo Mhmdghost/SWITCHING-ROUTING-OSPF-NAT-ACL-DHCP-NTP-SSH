@@ -17,7 +17,7 @@ It includes **Switching, Routing, NAT, PAT, ACL, OSPF, DHCP, NTP, and SSH** conf
 ---
 
 ## 🖼️ Network Topology
-![Network Topology](images/TOPOLOGY.PNG)
+![Network Topology](./images/TOPOLOGY.png)
 
 ---
 
@@ -62,31 +62,31 @@ Remote login to devices using SSH.
 
 ### 🌍 NAT & PAT
 NAT and PAT configured on R1 to allow inside hosts to access the internet.  
-![NAT Translation](./images/NAT.PNG)
+![NAT Translation](./images/NAT.png)
 
 ---
 
 ### 🛡️ ACL
 ACL applied on R1 to filter traffic based on source/destination.  
-![ACL Verification](./images/ACL.PNG)
+![ACL Verification](./images/ACL.png)
 
 ---
 
 ### 📡 OSPF
 OSPF dynamic routing established between R1, R2, and R3.  
-![OSPF Neighbors](./images/OSPF.PNG)
+![OSPF Neighbors](./images/OSPF.png)
 
 ---
 
 ### ⏰ NTP
 Devices synchronized with NTP server.  
-![NTP Sync](./images/NTP.PNG)
+![NTP Sync](./images/NTP.png)
 
 ---
 
 ### 🖥️ DHCP
 DHCP server handing out IP addresses to VLAN clients.  
-![DHCP Lease](./images/DHCP.PNG)
+![DHCP Lease](./images/DHCP.png)
 
 ---
 
