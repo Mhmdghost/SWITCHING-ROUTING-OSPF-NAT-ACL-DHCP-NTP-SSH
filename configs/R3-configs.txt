@@ -1,0 +1,347 @@
+
+R3#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     8.0.0.0/32 is subnetted, 1 subnets
+O       8.8.8.8/32 [110/65] via 10.0.13.1, 00:10:51, Serial0/1/0
+     9.0.0.0/32 is subnetted, 1 subnets
+O       9.9.9.9/32 [110/66] via 10.0.13.1, 00:10:21, Serial0/1/0
+     10.0.0.0/8 is variably subnetted, 3 subnets, 2 masks
+C       10.0.13.0/30 is directly connected, Serial0/1/0
+L       10.0.13.2/32 is directly connected, Serial0/1/0
+O       10.20.30.40/32 [110/66] via 10.0.13.1, 00:10:21, Serial0/1/0
+     172.16.0.0/16 is variably subnetted, 4 subnets, 2 masks
+O       172.16.0.0/30 [110/65] via 10.0.13.1, 00:10:21, Serial0/1/0
+O       172.16.0.4/30 [110/128] via 10.0.13.1, 00:10:51, Serial0/1/0
+O       172.16.0.8/30 [110/66] via 10.0.13.1, 00:10:21, Serial0/1/0
+O       172.16.1.0/24 [110/66] via 10.0.13.1, 00:10:21, Serial0/1/0
+     192.168.10.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.10.0/24 is directly connected, GigabitEthernet0/0/1.10
+L       192.168.10.1/32 is directly connected, GigabitEthernet0/0/1.10
+     192.168.20.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.20.0/24 is directly connected, GigabitEthernet0/0/1.20
+L       192.168.20.1/32 is directly connected, GigabitEthernet0/0/1.20
+     192.168.30.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.30.0/24 is directly connected, GigabitEthernet0/0/0.30
+L       192.168.30.1/32 is directly connected, GigabitEthernet0/0/0.30
+     192.168.40.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.40.0/24 is directly connected, GigabitEthernet0/0/0.40
+L       192.168.40.1/32 is directly connected, GigabitEthernet0/0/0.40
+
+R3#show int
+R3#show interfaces ?
+  Dialer            Dialer interface
+  Dot11Radio        Dot11 interface
+  Ethernet          IEEE 802.3
+  FastEthernet      FastEthernet IEEE 802.3
+  GigabitEthernet   GigabitEthernet IEEE 802.3z
+  Loopback          Loopback interface
+  Port-channel      Ethernet Channel of interfaces
+  Serial            Serial
+  Tunnel            Tunnel interface
+  Virtual-Access    Virtual Access interface
+  Virtual-Template  Virtual Template interface
+  Vlan              Catalyst Vlans
+  switchport        Show interface switchport information
+  trunk             Show interface trunk information
+  |                 Output Modifiers
+  <cr>
+R3#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   unassigned      YES unset  up                    up 
+GigabitEthernet0/0/0.30192.168.30.1    YES manual up                    up 
+GigabitEthernet0/0/0.40192.168.40.1    YES manual up                    up 
+GigabitEthernet0/0/1   unassigned      YES unset  up                    up 
+GigabitEthernet0/0/1.10192.168.10.1    YES manual up                    up 
+GigabitEthernet0/0/1.20192.168.20.1    YES manual up                    up 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Serial0/1/0            10.0.13.2       YES manual up                    up 
+Serial0/1/1            unassigned      YES unset  administratively down down 
+Serial0/2/0            unassigned      YES unset  administratively down down 
+Serial0/2/1            unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+R3#
+
+
+
+
+
+
+
+
+R3 con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+R3>
+R3>
+R3>en
+R3#show ip r
+R3#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     8.0.0.0/32 is subnetted, 1 subnets
+O       8.8.8.8/32 [110/65] via 10.0.13.1, 00:44:00, Serial0/1/0
+     9.0.0.0/32 is subnetted, 1 subnets
+O       9.9.9.9/32 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+     10.0.0.0/8 is variably subnetted, 3 subnets, 2 masks
+C       10.0.13.0/30 is directly connected, Serial0/1/0
+L       10.0.13.2/32 is directly connected, Serial0/1/0
+O       10.20.30.40/32 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+     172.16.0.0/16 is variably subnetted, 4 subnets, 2 masks
+O       172.16.0.0/30 [110/65] via 10.0.13.1, 00:43:30, Serial0/1/0
+O       172.16.0.4/30 [110/128] via 10.0.13.1, 00:44:00, Serial0/1/0
+O       172.16.0.8/30 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+O       172.16.1.0/24 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+     192.168.10.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.10.0/24 is directly connected, GigabitEthernet0/0/1.10
+L       192.168.10.1/32 is directly connected, GigabitEthernet0/0/1.10
+     192.168.20.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.20.0/24 is directly connected, GigabitEthernet0/0/1.20
+L       192.168.20.1/32 is directly connected, GigabitEthernet0/0/1.20
+     192.168.30.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.30.0/24 is directly connected, GigabitEthernet0/0/0.30
+L       192.168.30.1/32 is directly connected, GigabitEthernet0/0/0.30
+     192.168.40.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.40.0/24 is directly connected, GigabitEthernet0/0/0.40
+L       192.168.40.1/32 is directly connected, GigabitEthernet0/0/0.40
+
+R3# 
+****************************************************************************************************************************************************
+R3# 
+R3#show ip int
+R3#show ip interface b
+R3#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   unassigned      YES unset  up                    up 
+GigabitEthernet0/0/0.30192.168.30.1    YES manual up                    up 
+GigabitEthernet0/0/0.40192.168.40.1    YES manual up                    up 
+GigabitEthernet0/0/1   unassigned      YES unset  up                    up 
+GigabitEthernet0/0/1.10192.168.10.1    YES manual up                    up 
+GigabitEthernet0/0/1.20192.168.20.1    YES manual up                    up 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Serial0/1/0            10.0.13.2       YES manual up                    up 
+Serial0/1/1            unassigned      YES unset  administratively down down 
+Serial0/2/0            unassigned      YES unset  administratively down down 
+Serial0/2/1            unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+R3#
+****************************************************************************************************************************************************
+R3#show ip route 
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     8.0.0.0/32 is subnetted, 1 subnets
+O       8.8.8.8/32 [110/65] via 10.0.13.1, 00:44:00, Serial0/1/0
+     9.0.0.0/32 is subnetted, 1 subnets
+O       9.9.9.9/32 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+     10.0.0.0/8 is variably subnetted, 3 subnets, 2 masks
+C       10.0.13.0/30 is directly connected, Serial0/1/0
+L       10.0.13.2/32 is directly connected, Serial0/1/0
+O       10.20.30.40/32 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+     172.16.0.0/16 is variably subnetted, 4 subnets, 2 masks
+O       172.16.0.0/30 [110/65] via 10.0.13.1, 00:43:30, Serial0/1/0
+O       172.16.0.4/30 [110/128] via 10.0.13.1, 00:44:00, Serial0/1/0
+O       172.16.0.8/30 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+O       172.16.1.0/24 [110/66] via 10.0.13.1, 00:43:30, Serial0/1/0
+     192.168.10.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.10.0/24 is directly connected, GigabitEthernet0/0/1.10
+L       192.168.10.1/32 is directly connected, GigabitEthernet0/0/1.10
+     192.168.20.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.20.0/24 is directly connected, GigabitEthernet0/0/1.20
+L       192.168.20.1/32 is directly connected, GigabitEthernet0/0/1.20
+     192.168.30.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.30.0/24 is directly connected, GigabitEthernet0/0/0.30
+L       192.168.30.1/32 is directly connected, GigabitEthernet0/0/0.30
+     192.168.40.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.40.0/24 is directly connected, GigabitEthernet0/0/0.40
+L       192.168.40.1/32 is directly connected, GigabitEthernet0/0/0.40
+
+R3# 
+R3#show ip int
+R3#show ip interface b
+R3#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   unassigned      YES unset  up                    up 
+GigabitEthernet0/0/0.30192.168.30.1    YES manual up                    up 
+GigabitEthernet0/0/0.40192.168.40.1    YES manual up                    up 
+GigabitEthernet0/0/1   unassigned      YES unset  up                    up 
+GigabitEthernet0/0/1.10192.168.10.1    YES manual up                    up 
+GigabitEthernet0/0/1.20192.168.20.1    YES manual up                    up 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Serial0/1/0            10.0.13.2       YES manual up                    up 
+Serial0/1/1            unassigned      YES unset  administratively down down 
+Serial0/2/0            unassigned      YES unset  administratively down down 
+Serial0/2/1            unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+R3#show ru
+R3#show running-config 
+Building configuration...
+
+Current configuration : 1661 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R3
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.1 255.255.255.0
+ ip helper-address 10.20.30.40
+!
+interface GigabitEthernet0/0/0.40
+ encapsulation dot1Q 40
+ ip address 192.168.40.1 255.255.255.0
+ ip helper-address 10.20.30.40
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+ ip helper-address 10.20.30.40
+!
+interface GigabitEthernet0/0/1.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+ ip helper-address 10.20.30.40
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ ip address 10.0.13.2 255.255.255.252
+ clock rate 2000000
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.0.13.0 0.0.0.3 area 0
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+ network 192.168.30.0 0.0.0.255 area 0
+ network 192.168.40.0 0.0.0.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+R3# 

@@ -1,0 +1,245 @@
+SW1#show running-config 
+Building configuration...
+
+Current configuration : 2722 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW1
+!
+!
+!
+ip dhcp excluded-address 172.16.1.20
+ip dhcp excluded-address 192.168.10.1
+ip dhcp excluded-address 192.168.20.1
+ip dhcp excluded-address 192.168.30.1
+ip dhcp excluded-address 192.168.40.1
+!
+ip dhcp pool dhcp-pool
+ network 172.16.1.0 255.255.255.0
+ default-router 172.16.1.20
+ dns-server 8.8.8.8
+ip dhcp pool VLAN10_POOL
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+ domain-name wr
+ip dhcp pool VLAN20_POOL
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 8.8.8.8
+ domain-name wr
+ip dhcp pool VLAN30_POOL
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 8.8.8.8
+ domain-name wr
+ip dhcp pool VLAN40_POOL
+ network 192.168.40.0 255.255.255.0
+ default-router 192.168.40.1
+ dns-server 8.8.8.8
+ domain-name wr
+!
+!
+ip routing
+!
+!
+!
+!
+username mohammed privilege 15 password 0 1234
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name ssh-server
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 9.9.9.9 255.255.255.255
+!
+interface Loopback1
+ ip address 10.20.30.40 255.255.255.255
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+ no switchport
+ ip address 172.16.0.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/4
+ no switchport
+ ip address 172.16.0.10 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 172.16.1.20 255.255.255.0
+!
+router ospf 1
+ log-adjacency-changes
+ network 172.16.1.0 0.0.0.255 area 0
+ network 172.16.0.0 0.0.255.255 area 0
+ network 9.9.9.9 0.0.0.0 area 0
+ network 10.20.30.40 0.0.0.0 area 0
+!
+ip classless
+ip route 172.16.0.5 255.255.255.255 172.16.0.6 
+ip route 172.16.1.0 255.255.255.0 172.16.0.2 
+ip route 0.0.0.0 0.0.0.0 FastEthernet0/3 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+
+
+*********************************************************************************************************
+SW1# show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+     8.0.0.0/32 is subnetted, 1 subnets
+O       8.8.8.8 [110/2] via 172.16.0.2, 00:39:00, FastEthernet0/3
+     9.0.0.0/32 is subnetted, 1 subnets
+C       9.9.9.9 is directly connected, Loopback0
+     10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+O       10.0.13.0/30 [110/65] via 172.16.0.2, 00:39:00, FastEthernet0/3
+C       10.20.30.40/32 is directly connected, Loopback1
+     172.16.0.0/16 is variably subnetted, 5 subnets, 3 masks
+C       172.16.0.0/30 is directly connected, FastEthernet0/3
+O       172.16.0.4/30 [110/65] via 172.16.0.2, 00:39:00, FastEthernet0/3
+                      [110/65] via 172.16.0.9, 00:39:00, FastEthernet0/4
+S       172.16.0.5/32 [1/0] via 172.16.0.6
+C       172.16.0.8/30 is directly connected, FastEthernet0/4
+C       172.16.1.0/24 is directly connected, Vlan1
+O    192.168.10.0/24 [110/66] via 172.16.0.2, 00:39:00, FastEthernet0/3
+O    192.168.20.0/24 [110/66] via 172.16.0.2, 00:39:00, FastEthernet0/3
+O    192.168.30.0/24 [110/66] via 172.16.0.2, 00:39:00, FastEthernet0/3
+O    192.168.40.0/24 [110/66] via 172.16.0.2, 00:39:00, FastEthernet0/3
+S*   0.0.0.0/0 is directly connected, FastEthernet0/3
+****************************************************************************************************************************************************
+SW1#
+SW1#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+FastEthernet0/1        unassigned      YES unset  up                    up 
+FastEthernet0/2        unassigned      YES unset  up                    up 
+FastEthernet0/3        172.16.0.1      YES manual up                    up 
+FastEthernet0/4        172.16.0.10     YES manual up                    up 
+FastEthernet0/5        unassigned      YES unset  down                  down 
+FastEthernet0/6        unassigned      YES unset  down                  down 
+FastEthernet0/7        unassigned      YES unset  down                  down 
+FastEthernet0/8        unassigned      YES unset  down                  down 
+FastEthernet0/9        unassigned      YES unset  down                  down 
+FastEthernet0/10       unassigned      YES unset  down                  down 
+FastEthernet0/11       unassigned      YES unset  down                  down 
+FastEthernet0/12       unassigned      YES unset  down                  down 
+FastEthernet0/13       unassigned      YES unset  down                  down 
+FastEthernet0/14       unassigned      YES unset  down                  down 
+FastEthernet0/15       unassigned      YES unset  down                  down 
+FastEthernet0/16       unassigned      YES unset  down                  down 
+FastEthernet0/17       unassigned      YES unset  down                  down 
+FastEthernet0/18       unassigned      YES unset  down                  down 
+FastEthernet0/19       unassigned      YES unset  down                  down 
+FastEthernet0/20       unassigned      YES unset  down                  down 
+FastEthernet0/21       unassigned      YES unset  down                  down 
+FastEthernet0/22       unassigned      YES unset  down                  down 
+FastEthernet0/23       unassigned      YES unset  down                  down 
+FastEthernet0/24       unassigned      YES unset  down                  down 
+GigabitEthernet0/1     unassigned      YES unset  down                  down 
+GigabitEthernet0/2     unassigned      YES unset  down                  down 
+Loopback0              9.9.9.9         YES manual up                    up 
+Loopback1              10.20.30.40     YES manual up                    up 
+Vlan1                  172.16.1.20     YES manual up                    up
+SW1#
