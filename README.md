@@ -17,7 +17,7 @@ It includes **Switching, Routing, NAT, PAT, ACL, OSPF, DHCP, NTP, and SSH** conf
 ---
 
 ## 🖼️ Network Topology
-![Network Topology](./images/TOPOLOGY.PNG)
+![Network Topology](images/TOPOLOGY.PNG)
 
 ---
 
